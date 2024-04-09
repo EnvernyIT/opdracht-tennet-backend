@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
@@ -135,7 +136,7 @@ public class ProductInstallationController {
 
     @GetMapping("/get/name/{name}")
     public ResponseEntity<Response> getProductionInstallationByName(@PathVariable("name") String name) {
-        List<ProductInstallation> v = productInstallationService.getByName(name);
+        Collection<ProductInstallation> v = productInstallationService.getByName(name);
         if (v != null)
             return ResponseEntity.ok(
                     Response.builder()

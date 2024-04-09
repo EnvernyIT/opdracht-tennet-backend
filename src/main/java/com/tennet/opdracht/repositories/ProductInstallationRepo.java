@@ -13,6 +13,9 @@ import java.util.List;
 @Repository
 public interface ProductInstallationRepo extends JpaRepository<ProductInstallation, Long> {
 
+    @Query("select pi from ProductInstallation pi where pi.name like %:name%")
+    List<ProductInstallation> getByName(String name);
+
     @Query("select pi from ProductInstallation pi where pi.name = ?1")
     Collection<ProductInstallation> findByName(String name);
 

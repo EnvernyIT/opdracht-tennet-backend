@@ -9,6 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
+import java.util.Collection;
 import java.util.List;
 
 import static java.lang.Boolean.TRUE;
@@ -35,7 +36,7 @@ public class ProductInstallationServiceImpl implements ProductInstallationServic
     @Override
     public List<ProductInstallation> getByName(String name) {
         log.info("Fetching product installations by name: {}", name);
-        return productInstallationRepo.findByName(name).stream().toList();
+        return productInstallationRepo.getByName(name);
     }
 
     @Override
@@ -67,5 +68,5 @@ public class ProductInstallationServiceImpl implements ProductInstallationServic
     public List<ProductInstallation> getProductionInstallationsByNameAndOrOutputPower(String name, Double outputPower) {
         log.info("Fetching product installations by name: {} & outputPower: {}", name, outputPower);
             return productInstallationRepo.findByNameAndOutputPower(name, outputPower);
-    }
+        }
 }
