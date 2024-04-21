@@ -45,7 +45,7 @@ public class ProductInstallationController {
 
     @PostMapping("/save")
     public ResponseEntity<Response> saveProductionInstallation(@RequestBody ProductInstallationVO vo) {
-        if (vo.getOutputPower() >= 0.0001 && vo.getOutputPower().doubleValue() <= 999999) {
+        if (vo.getOutputPower() >= 0.0001 && vo.getOutputPower() <= 999999) {
             ContactPerson contactPerson = contactPersonService.get(vo.getContactPersonId());
             if (contactPerson != null) {
                 ProductInstallation productInstallation = new ProductInstallation(null, vo.getName(), contactPerson, vo.getOutputPower());

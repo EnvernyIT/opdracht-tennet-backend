@@ -23,20 +23,20 @@ import static org.springframework.http.HttpStatus.OK;
 public class ContactPersonController {
 
     private final ContactPersonService contactPersonService;
-
-    @GetMapping("/list")
-    public ResponseEntity<Response> getContactPersons() throws InterruptedException {
-        TimeUnit.SECONDS.sleep(3);
-            return ResponseEntity.ok(
-                    Response.builder()
-                            .timeStamp(now())
-                            .data(Map.of("contactPersons", contactPersonService.list(30)))
-                            .message("Contact Persons retrieved")
-                            .status(OK)
-                            .statusCode(OK.value())
-                            .build()
-            );
-    }
+//
+//    @GetMapping("/list")
+//    public ResponseEntity<Response> getContactPersons() throws InterruptedException {
+//        TimeUnit.SECONDS.sleep(3);
+//            return ResponseEntity.ok(
+//                    Response.builder()
+//                            .timeStamp(now())
+//                            .data(Map.of("contactPersons", contactPersonService.list(30)))
+//                            .message("Contact Persons retrieved")
+//                            .status(OK)
+//                            .statusCode(OK.value())
+//                            .build()
+//            );
+//    }
 
     @GetMapping("/get/{id}")
     public ResponseEntity<Response> getContactPerson(@PathVariable("id") Long id) {
